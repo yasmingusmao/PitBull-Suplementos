@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PitBull - Sua loja favorita de Suplementos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+            font-family: 'Monument' ;
+            src: url('MonumentExtended-Regular.otf') format('opentype'), url('MonumentExtended-Ultrabold.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        header, body {
+            font-family: 'Monument';
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h3>PitBull Suplementos</h3>
+                <div class="header-actions">
+                    <form class="search-form">
+                        <input type="search" placeholder="Busque no site">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+                    <div class="menu-hamburguer">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul class="menu">
+                    <li><a href="#">Sobre a loja</a></li>
+                    <li class="menu-dropdown">
+                        <a href="#">Produtos</a>
+                            <ul class="submenu">
+                                <li><a href="#">Creatinas</a></li>
+                                <li><a href="#">Proteínas</a></li>
+                                <li><a href="#">Pré-treinos</a></li>
+                                <li><a href="#">Termogênicos/Emagrecedores</a></li>
+                                <li><a href="#">Vitaminas</a></li>
+                                <li><a href="#">Acessórios</a></li>
+                            </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="conteudo">
+        <main>
+            <section class="principal">
+                <a href="#">
+                        <img class="store" src="image0.png" width="320" height="320" alt="Logotipo da loja, um pitbull musculoso de braços cruzados.">
+                    </a>
+                <article class="sobre">
+                    <h2>Sobre a Loja</h2>
+                    <p>A <strong>PitBull Suplementos</strong> nasceu em Recife com a <strong>missão de oferecer praticidade e confiança</strong> para quem busca saúde, desempenho e qualidade de vida.</p>
+                </article>
+            </section>
+            <section>
+                <h2>Produtos</h2>
+                <div class="produtos">
+                    <div class="produto-item">
+                        <img src="image4-removebg-preview.png" alt="Creatina Max Titanium 300g">
+                        <p>Creatina Max Titanium 300g</p>
+                    </div>
+                    <div class="produto-item">
+                        <img src="image0-removebg-preview.png" alt="Nuclear Rush Pré-treino">
+                        <p>Nuclear Rush Pré-treino</p>
+                    </div>
+                    <div class="produto-item">
+                        <img src="image5-removebg-preview.png" alt="Shark Mass">
+                        <p>Shark Mass</p>
+                    </div>
+                    <div class="produto-item">
+                        <img src="image2-removebg-preview.png" alt="Creatina 100% Pure 1Kg">
+                        <p>Creatina 100% Pure 1Kg</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Feito com ♥ pela
+            <a href="https://instagram.com/yagusmao" target="_blank">YáDev</a></p>
+            <p>&copy; 2025 - Todos os direitos reservados</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.menu-hamburguer').click(function(){
+                $(this).toggleClass('active');
+                $('.nav-menu').toggleClass('active');
+            });
+
+            $('.menu a').click(function() {
+                if ($(window).width() < 1024) {
+                    $('.menu-hamburguer').removeClass('active');
+                    $('.nav-menu').removeClass('active');
+                }
+            });
+
+            $('.menu-dropdown > a').click(function(e) {
+                if ($(window).width() < 1024) {
+                    e.preventDefault();
+                    $(this).next('.submenu').slideToggle();
+                }
+            });
+
+            $(window).resize(function() {
+                if ($(window).width() >= 1024) {
+                    $('.menu-hamburguer').removeClass('active');
+                    $('.nav-menu').removeClass('active');
+                    $('.submenu').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
